@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JJ Ingeniería y Construcción SPA - Empresa líder en construcción, ingeniería civil, arquitectura y servicios de construcción en Chile">
+    <meta name="keywords" content="construcción, ingeniería, arquitectura, obras civiles, Chile, JJ Ingeniería">
+    <meta name="author" content="JJ Ingeniería y Construcción SPA">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="JJ Ingeniería y Construcción SPA">
+    <meta property="og:description" content="Empresa líder en construcción, ingeniería civil y arquitectura">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="./assets/img/logo.PNG">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./assets/img/favicon_io/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="./assets/img/favicon_io/site.webmanifest">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/header.css">
+    
+    <!-- Swiper CSS para la galería -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    
+    <title>JJ Ingeniería y Construcción SPA - Construcción e Ingeniería Civil</title>
+</head>
+<body>
+    <!-- ===================================
+         HEADER Y NAVEGACIÓN
+         =================================== -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <!-- Logo -->
+            <a href="#home" class="nav__logo">
+                <img src="./assets/img/logo.PNG" alt="JJ Ingeniería y Construcción SPA" class="nav__logo-img">
+            </a>
+            
+            <!-- Menú de navegación -->
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link active-link">Inicio</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#quienes-somos" class="nav__link">Quiénes Somos</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#servicios" class="nav__link">Servicios</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#galeria" class="nav__link">Galería</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#contacto" class="nav__link nav__cta">Contacto</a>
+                    </li>
+                </ul>
+                
+                <!-- Botón de cerrar menú móvil -->
+                <div class="nav__close" id="nav-close">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Botón de menú móvil -->
+            <div class="nav__toggle" id="nav-toggle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===================================
+         MAIN CONTENT
+         =================================== -->
+    <main class="main">
+        <!-- ===================================
+             HERO SECTION
+             =================================== -->
+        <section class="hero" id="home">
+            <div class="hero__container container">
+                <div class="hero__content">
+                    <h1 class="hero__title">
+                        <span class="hero__title-primary">JJ Ingeniería</span>
+                        <span class="hero__title-secondary">y Construcción SPA</span>
+                    </h1>
+                    <p class="hero__subtitle">
+                        Construyendo el futuro con excelencia, innovación y compromiso. 
+                        Más de una década transformando ideas en realidades sólidas.
+                    </p>
+                    <div class="hero__buttons">
+                        <a href="#servicios" class="btn btn--primary">Nuestros Servicios</a>
+                        <a href="#contacto" class="btn btn--secondary">Solicitar Cotización</a>
+                    </div>
+                </div>
+                
+                <!-- Flecha de scroll down animada -->
+                <div class="hero__scroll">
+                    <a href="#quienes-somos" class="hero__scroll-link">
+                        <svg class="hero__scroll-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="hero__scroll-text">Scroll</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Background decorativo -->
+            <div class="hero__bg">
+                <div class="hero__bg-shape hero__bg-shape--1"></div>
+                <div class="hero__bg-shape hero__bg-shape--2"></div>
+                <div class="hero__bg-shape hero__bg-shape--3"></div>
+            </div>
+        </section>
+
+        <!-- ===================================
+             QUIÉNES SOMOS SECTION
+             =================================== -->
+        <section class="about" id="quienes-somos">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Quiénes Somos</h2>
+                    <p class="section__subtitle">
+                        Conoce nuestra historia, misión y el equipo que hace posible cada proyecto
+                    </p>
+                </div>
+                
+                <div class="about__content">
+                    <!-- Misión -->
+                    <div class="about__card">
+                        <div class="about__card-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="about__card-title">Nuestra Misión</h3>
+                        <p class="about__card-text">
+                            Brindar servicios de construcción e ingeniería de alta calidad, 
+                            superando las expectativas de nuestros clientes mediante soluciones 
+                            innovadoras, eficientes y sostenibles.
+                        </p>
+                    </div>
+                    
+                    <!-- Visión -->
+                    <div class="about__card">
+                        <div class="about__card-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="about__card-title">Nuestra Visión</h3>
+                        <p class="about__card-text">
+                            Ser reconocidos como la empresa líder en construcción e ingeniería, 
+                            destacando por nuestra excelencia técnica, compromiso ambiental y 
+                            contribución al desarrollo sostenible.
+                        </p>
+                    </div>
+                    
+                    <!-- Valores -->
+                    <div class="about__card">
+                        <div class="about__card-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="about__card-title">Nuestros Valores</h3>
+                        <p class="about__card-text">
+                            Integridad, excelencia, innovación, responsabilidad social y 
+                            compromiso con la seguridad. Estos valores guían cada decisión 
+                            y acción en nuestros proyectos.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Equipo -->
+                <div class="about__team">
+                    <h3 class="about__team-title">Nuestro Equipo</h3>
+                    <div class="about__team-grid" id="team-container">
+                        <!-- El equipo se renderizará dinámicamente con JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================
+             SERVICIOS SECTION
+             =================================== -->
+        <section class="services" id="servicios">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Nuestros Servicios</h2>
+                    <p class="section__subtitle">
+                        Ofrecemos soluciones integrales en construcción e ingeniería
+                    </p>
+                </div>
+                
+                <div class="services__grid" id="services-container">
+                    <!-- Los servicios se renderizarán dinámicamente con JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================
+             GALERÍA SECTION
+             =================================== -->
+        <section class="gallery" id="galeria">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Galería de Proyectos</h2>
+                    <p class="section__subtitle">
+                        Conoce algunos de nuestros proyectos más destacados
+                    </p>
+                </div>
+                
+                <!-- Carrusel de imágenes -->
+                <div class="gallery__carousel">
+                    <div class="swiper gallery-swiper">
+                        <div class="swiper-wrapper" id="gallery-wrapper">
+                            <!-- Las imágenes se cargarán dinámicamente con JavaScript -->
+                        </div>
+                        
+                        <!-- Navegación -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        
+                        <!-- Paginación -->
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================
+             CONTACTO SECTION
+             =================================== -->
+        <section class="contact" id="contacto">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Contacto</h2>
+                    <p class="section__subtitle">
+                        Estamos aquí para ayudarte con tu próximo proyecto
+                    </p>
+                </div>
+                
+                <div class="contact__content">
+                    <div class="contact__info">
+                        <div class="contact__item">
+                            <div class="contact__item-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div class="contact__item-content">
+                                <h4 class="contact__item-title">Dirección</h4>
+                                <p class="contact__item-text">Av. Providencia 1234, Providencia, Santiago, Chile</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact__item">
+                            <div class="contact__item-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div class="contact__item-content">
+                                <h4 class="contact__item-title">Teléfono</h4>
+                                <a href="tel:+56912345678" class="contact__item-text">+56 9 1234 5678</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact__item">
+                            <div class="contact__item-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2"/>
+                                    <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div class="contact__item-content">
+                                <h4 class="contact__item-title">Email</h4>
+                                <a href="mailto:contacto@jjingenieria.cl" class="contact__item-text">contacto@jjingenieria.cl</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact__item">
+                            <div class="contact__item-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                    <polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div class="contact__item-content">
+                                <h4 class="contact__item-title">Horario de Atención</h4>
+                                <p class="contact__item-text">Lunes a Viernes: 8:00 - 18:00<br>Sábados: 9:00 - 13:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact__cta">
+                        <h3 class="contact__cta-title">¿Listo para comenzar tu proyecto?</h3>
+                        <p class="contact__cta-text">
+                            Contáctanos hoy mismo y recibe una cotización personalizada
+                        </p>
+                        <a href="https://api.whatsapp.com/send?phone=56912345678&text=Hola,%20me%20interesa%20obtener%20información%20sobre%20sus%20servicios%20de%20construcción%20e%20ingeniería." 
+                           class="btn btn--primary btn--large" target="_blank" rel="noopener noreferrer">
+                            Solicitar Cotización
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===================================
+         FOOTER
+         =================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <div class="footer__logo">
+                        <img src="./assets/img/logo.PNG" alt="JJ Ingeniería y Construcción SPA" class="footer__logo-img">
+                        <h3 class="footer__logo-text">JJ Ingeniería y Construcción SPA</h3>
+                    </div>
+                    <p class="footer__description">
+                        Construyendo el futuro con excelencia, innovación y compromiso. 
+                        Tu socio confiable en proyectos de construcción e ingeniería.
+                    </p>
+                </div>
+                
+                <div class="footer__section">
+                    <h4 class="footer__title">Servicios</h4>
+                    <ul class="footer__list">
+                        <li><a href="#servicios" class="footer__link">Construcción Civil</a></li>
+                        <li><a href="#servicios" class="footer__link">Ingeniería Estructural</a></li>
+                        <li><a href="#servicios" class="footer__link">Arquitectura</a></li>
+                        <li><a href="#servicios" class="footer__link">Gestión de Proyectos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__section">
+                    <h4 class="footer__title">Contacto</h4>
+                    <ul class="footer__list">
+                        <li class="footer__contact-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <span>Av. Providencia 1234, Santiago</span>
+                        </li>
+                        <li class="footer__contact-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <a href="tel:+56912345678">+56 9 1234 5678</a>
+                        </li>
+                        <li class="footer__contact-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2"/>
+                                <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <a href="mailto:contacto@jjingenieria.cl">contacto@jjingenieria.cl</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer__section">
+                    <h4 class="footer__title">Síguenos</h4>
+                    <div class="footer__social">
+                        <a href="#" class="footer__social-link" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="footer__social-link" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2"/>
+                                <path d="m16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke="currentColor" stroke-width="2"/>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="footer__social-link" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="2"/>
+                                <rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p class="footer__copyright">
+                    &copy; 2024 JJ Ingeniería y Construcción SPA. Todos los derechos reservados.
+                </p>
+                <div class="footer__legal">
+                    <a href="#" class="footer__legal-link">Política de Privacidad</a>
+                    <a href="#" class="footer__legal-link">Términos de Servicio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===================================
+         BOTONES FLOTANTES
+         =================================== -->
+    <div class="floating-buttons">
+        <!-- Botón de WhatsApp -->
+        <a href="https://api.whatsapp.com/send?phone=56912345678&text=Hola,%20me%20interesa%20obtener%20información%20sobre%20sus%20servicios." 
+           class="floating-btn floating-btn--whatsapp" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           aria-label="Contactar por WhatsApp">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+            </svg>
+        </a>
+        
+        <!-- Botón de scroll to top -->
+        <button class="floating-btn floating-btn--scroll-top" id="scroll-top" aria-label="Volver arriba">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </div>
+
+    <!-- ===================================
+         MODAL PARA GALERÍA
+         =================================== -->
+    <div class="modal" id="gallery-modal">
+        <div class="modal__backdrop" id="modal-backdrop"></div>
+        <div class="modal__content">
+            <button class="modal__close" id="modal-close" aria-label="Cerrar modal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <img src="" alt="" class="modal__image" id="modal-image">
+        </div>
+    </div>
+
+    <!-- ===================================
+         SCRIPTS
+         =================================== -->
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <!-- Scripts principales -->
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
