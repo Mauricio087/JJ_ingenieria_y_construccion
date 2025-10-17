@@ -78,27 +78,10 @@ const servicesData = [
     }
 ];
 
-// Datos de galería (imágenes numeradas)
-const galleryData = [
-    { id: 1, title: "Proyecto Residencial Moderno", category: "residencial" },
-    { id: 2, title: "Edificio Comercial Centro", category: "comercial" },
-    { id: 3, title: "Casa Familiar Contemporánea", category: "residencial" },
-    { id: 4, title: "Oficinas Corporativas", category: "comercial" },
-    { id: 5, title: "Remodelación Integral", category: "remodelacion" },
-    { id: 6, title: "Complejo Habitacional", category: "residencial" },
-    { id: 7, title: "Centro Comercial", category: "comercial" },
-    { id: 8, title: "Villa Moderna", category: "residencial" },
-    { id: 9, title: "Restauración Histórica", category: "remodelacion" },
-    { id: 10, title: "Proyecto Industrial", category: "industrial" },
-    { id: 11, title: "Casa de Campo", category: "residencial" },
-    { id: 12, title: "Torre de Oficinas", category: "comercial" }
-];
-
 // ===================================
 // VARIABLES GLOBALES
 // ===================================
 
-let gallerySwiper = null;
 let isScrolling = false;
 
 // ===================================
@@ -113,15 +96,12 @@ function initializeApp() {
     // Renderizar contenido dinámico
     renderTeamMembers();
     renderServices();
-    renderGallery();
     
     // Inicializar funcionalidades
     initializeNavigation();
     initializeHero();
     initializeFloatingButtons();
-    initializeModal();
     initializeScrollEffects();
-    initializeGallerySwiper();
     
     console.log('JJ Ingeniería y Construcción SPA - Aplicación inicializada correctamente');
 }
@@ -144,7 +124,7 @@ function renderTeamMembers() {
 }
 
 function renderServices() {
-    const servicesGrid = document.getElementById('services-grid');
+    const servicesGrid = document.getElementById('services-container');
     if (!servicesGrid) return;
     
     servicesGrid.innerHTML = servicesData.map(service => `
@@ -165,34 +145,6 @@ function renderServices() {
             </a>
         </div>
     `).join('');
-}
-
-function renderGallery() {
-    const galleryContainer = document.getElementById('gallery-container');
-    if (!galleryContainer) return;
-    
-    galleryContainer.innerHTML = `
-        <div class="swiper gallery-swiper">
-            <div class="swiper-wrapper">
-                ${galleryData.map(item => `
-                    <div class="swiper-slide">
-                        <div class="gallery-item" data-image-id="${item.id}">
-                            <img src="./assets/img/galeria/proyecto-${item.id}.jpg" 
-                                 alt="${item.title}" 
-                                 class="gallery-item__image"
-                                 loading="lazy">
-                            <div class="gallery-item__overlay">
-                                <h3 class="gallery-item__title">${item.title}</h3>
-                            </div>
-                        </div>
-                    </div>
-                `).join('')}
-            </div>
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-        </div>
-    `;
 }
 
 // ===================================
@@ -235,17 +187,18 @@ function initializeNavigation() {
         }
     });
     
-    // Smooth scroll para enlaces internos
+    // Smooth scroll con compensación por header fijo
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (!href || href === '#' || !href.startsWith('#')) return;
+            const target = document.querySelector(href);
+            if (!target) return;
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
+            const headerEl = document.querySelector('.header');
+            const headerHeight = headerEl ? headerEl.offsetHeight : 0;
+            const top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+            window.scrollTo({ top, behavior: 'smooth' });
         });
     });
 }
@@ -260,12 +213,14 @@ function initializeHero() {
     if (scrollDownBtn) {
         scrollDownBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            const aboutSection = document.getElementById('about');
-            if (aboutSection) {
-                aboutSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+            const targetSection = document.getElementById('quienes-somos');
+            if (targetSection) {
+                const headerEl = document.querySelector('.header');
+                const headerHeight = headerEl ? headerEl.offsetHeight : 0;
+                const top = targetSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                window.scrollTo({ top, behavior: 'smooth' });
+            } else {
+                window.location.hash = '#quienes-somos';
             }
         });
     }
@@ -291,8 +246,8 @@ function createHeroBackgroundShapes() {
 // ===================================
 
 function initializeFloatingButtons() {
-    const scrollTopBtn = document.getElementById('scroll-top-btn');
-    const whatsappBtn = document.getElementById('whatsapp-btn');
+    const scrollTopBtn = document.getElementById('scroll-top') || document.getElementById('scroll-top-btn');
+    const whatsappBtn = document.querySelector('.floating-btn--whatsapp') || document.getElementById('whatsapp-btn');
     
     // Mostrar/ocultar botón de scroll to top
     window.addEventListener('scroll', () => {
@@ -322,54 +277,6 @@ function initializeFloatingButtons() {
 }
 
 // ===================================
-// MODAL DE GALERÍA
-// ===================================
-
-function initializeModal() {
-    const modal = document.getElementById('gallery-modal');
-    const modalImage = document.getElementById('modal-image');
-    const modalClose = document.getElementById('modal-close');
-    const modalBackdrop = document.querySelector('.modal__backdrop');
-    
-    // Abrir modal al hacer clic en imagen de galería
-    document.addEventListener('click', (e) => {
-        const galleryItem = e.target.closest('.gallery-item');
-        if (galleryItem) {
-            const imageId = galleryItem.dataset.imageId;
-            const imageData = galleryData.find(item => item.id == imageId);
-            
-            if (imageData) {
-                modalImage.src = `./assets/img/galeria/proyecto-${imageData.id}.jpg`;
-                modalImage.alt = imageData.title;
-                modal.classList.add('show');
-                document.body.style.overflow = 'hidden';
-            }
-        }
-    });
-    
-    // Cerrar modal
-    function closeModal() {
-        modal.classList.remove('show');
-        document.body.style.overflow = '';
-    }
-    
-    if (modalClose) {
-        modalClose.addEventListener('click', closeModal);
-    }
-    
-    if (modalBackdrop) {
-        modalBackdrop.addEventListener('click', closeModal);
-    }
-    
-    // Cerrar modal con tecla Escape
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('show')) {
-            closeModal();
-        }
-    });
-}
-
-// ===================================
 // EFECTOS DE SCROLL
 // ===================================
 
@@ -392,49 +299,6 @@ function initializeScrollEffects() {
     const animateElements = document.querySelectorAll('.service-card, .about__card, .team-member, .contact__item');
     animateElements.forEach(el => {
         observer.observe(el);
-    });
-}
-
-// ===================================
-// SWIPER GALERÍA
-// ===================================
-
-function initializeGallerySwiper() {
-    // Esperar a que Swiper esté disponible
-    if (typeof Swiper === 'undefined') {
-        console.warn('Swiper no está disponible. Asegúrate de incluir la librería.');
-        return;
-    }
-    
-    const swiperContainer = document.querySelector('.gallery-swiper');
-    if (!swiperContainer) return;
-    
-    gallerySwiper = new Swiper('.gallery-swiper', {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        loop: true,
-        autoplay: {
-            delay: 4000,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        breakpoints: {
-            768: {
-                slidesPerView: 2,
-                spaceBetween: 30,
-            },
-            992: {
-                slidesPerView: 3,
-                spaceBetween: 40,
-            }
-        }
     });
 }
 
@@ -518,7 +382,6 @@ window.addEventListener('scroll', debouncedScrollHandler);
 window.JJIngenieria = {
     teamData,
     servicesData,
-    galleryData,
     createWhatsAppMessage,
     formatPhoneNumber,
     isValidEmail
