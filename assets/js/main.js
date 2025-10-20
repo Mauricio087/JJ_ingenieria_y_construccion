@@ -29,52 +29,28 @@ const teamData = [
 // Datos de servicios
 const servicesData = [
     {
-        icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2L2 7v10c0 5.55 3.84 9.64 9 11 5.16-1.36 9-5.45 9-11V7l-10-5z"/>
-        </svg>`,
+        image: "./assets/img/galeria/construccion-viviendas.jpeg",
         title: "Construcción de Viviendas",
         description: "Construcción de casas unifamiliares y multifamiliares con los más altos estándares de calidad y diseño moderno.",
         whatsappMessage: "Hola, me interesa obtener información sobre construcción de viviendas. ¿Podrían ayudarme?"
     },
     {
-        icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-        </svg>`,
+        image: "./assets/img/galeria/proyectos comerciales.jpeg",
         title: "Proyectos Comerciales",
         description: "Desarrollo de espacios comerciales, oficinas y locales comerciales adaptados a las necesidades específicas de cada cliente.",
         whatsappMessage: "Hola, necesito información sobre proyectos comerciales. ¿Pueden asesorarme?"
     },
     {
-        icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
-        </svg>`,
+        image: "./assets/img/galeria/remodelaciones.jpeg",
         title: "Remodelaciones",
         description: "Renovación y remodelación de espacios existentes, mejorando funcionalidad y estética con diseños contemporáneos.",
         whatsappMessage: "Hola, estoy interesado en servicios de remodelación. ¿Podrían darme más detalles?"
     },
     {
-        icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-        </svg>`,
+        image: "./assets/img/galeria/consultoria tecnicas.jpeg",
         title: "Consultoría Técnica",
-        description: "Asesoría especializada en ingeniería estructural, evaluación de proyectos y supervisión técnica de obras.",
+        description: "Asesoramiento especializado en proyectos de construcción, análisis de viabilidad y optimización de recursos.",
         whatsappMessage: "Hola, necesito consultoría técnica para mi proyecto. ¿Pueden ayudarme?"
-    },
-    {
-        icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-        </svg>`,
-        title: "Diseño Arquitectónico",
-        description: "Creación de planos y diseños arquitectónicos personalizados que combinan funcionalidad, estética y eficiencia.",
-        whatsappMessage: "Hola, me interesa el servicio de diseño arquitectónico. ¿Podrían brindarme información?"
-    },
-    {
-        icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-        </svg>`,
-        title: "Gestión de Proyectos",
-        description: "Administración integral de proyectos de construcción desde la planificación hasta la entrega final.",
-        whatsappMessage: "Hola, necesito información sobre gestión de proyectos de construcción. ¿Pueden asesorarme?"
     }
 ];
 
@@ -98,6 +74,7 @@ function initializeApp() {
     renderServices();
     
     // Inicializar funcionalidades
+    initServicesCarousel();
     initializeNavigation();
     initializeHero();
     initializeFloatingButtons();
@@ -123,28 +100,107 @@ function renderTeamMembers() {
     `).join('');
 }
 
+// Función para renderizar servicios como carrusel
 function renderServices() {
-    const servicesGrid = document.getElementById('services-container');
-    if (!servicesGrid) return;
-    
-    servicesGrid.innerHTML = servicesData.map(service => `
-        <div class="service-card">
-            <div class="service-card__icon">
-                ${service.icon}
+    const servicesContainer = document.getElementById('services-container');
+    if (!servicesContainer) return;
+
+    servicesContainer.innerHTML = `
+        <div class="services-carousel">
+            <div class="services-carousel__container">
+                <div class="services-carousel__track" id="services-track">
+                    ${servicesData.map((service, index) => `
+                        <div class="service-card" data-index="${index}">
+                            <h3 class="service-card__title">${service.title}</h3>
+                            <div class="service-card__content">
+                                <div class="service-card__text">
+                                    <p class="service-card__description">${service.description}</p>
+                                </div>
+                                <div class="service-card__image">
+                                    <img src="${service.image}" alt="${service.title}" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
             </div>
-            <h3 class="service-card__title">${service.title}</h3>
-            <p class="service-card__description">${service.description}</p>
-            <a href="https://wa.me/56912345678?text=${encodeURIComponent(service.whatsappMessage)}" 
-               class="service-card__cta" 
-               target="_blank" 
-               rel="noopener noreferrer">
-                Consultar por WhatsApp
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
-                </svg>
-            </a>
+            <div class="services-carousel__controls">
+                <button class="services-carousel__btn services-carousel__btn--prev" id="services-prev">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                    </svg>
+                </button>
+                <div class="services-carousel__indicators" id="services-indicators">
+                    ${servicesData.map((_, index) => `
+                        <button class="services-carousel__indicator ${index === 0 ? 'active' : ''}" 
+                                data-index="${index}"></button>
+                    `).join('')}
+                </div>
+                <button class="services-carousel__btn services-carousel__btn--next" id="services-next">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
+                    </svg>
+                </button>
+            </div>
         </div>
-    `).join('');
+    `;
+
+    // Inicializar carrusel
+    initServicesCarousel();
+}
+
+// Función para inicializar el carrusel de servicios
+function initServicesCarousel() {
+    const track = document.getElementById('services-track');
+    const prevBtn = document.getElementById('services-prev');
+    const nextBtn = document.getElementById('services-next');
+    const indicators = document.querySelectorAll('.services-carousel__indicator');
+    
+    // Validar que todos los elementos existan
+    if (!track || !prevBtn || !nextBtn || indicators.length === 0) {
+        console.error('Elementos del carrusel no encontrados');
+        return;
+    }
+    
+    let currentIndex = 0;
+    const totalSlides = servicesData.length;
+
+    function updateCarousel() {
+        const translateX = -currentIndex * 100;
+        track.style.transform = `translateX(${translateX}%)`;
+        
+        // Actualizar indicadores
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === currentIndex);
+        });
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateCarousel();
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+    }
+
+    // Event listeners
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            currentIndex = index;
+            updateCarousel();
+        });
+    });
+
+    // Inicializar carrusel
+    updateCarousel();
+
+    // Auto-play (opcional)
+    setInterval(nextSlide, 5000);
 }
 
 // ===================================

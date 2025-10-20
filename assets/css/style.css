@@ -1056,9 +1056,101 @@ html {
 }
 
 .services__grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--spacing-xl);
+    display: block;
+    margin-top: var(--spacing-xl);
+}
+
+/* Estilos del carrusel de servicios */
+.services-carousel {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.services-carousel__container {
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.services-carousel__track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.services-carousel .service-card {
+    flex: 0 0 100%;
+    margin: 0;
+    border-radius: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border: none;
+    color: var(--color-dark);
+}
+
+.services-carousel .service-card__title {
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    font-size: 1.8rem;
+}
+
+.services-carousel .service-card__description {
+    color: #555;
+    line-height: 1.6;
+}
+
+.services-carousel__controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.services-carousel__btn {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.services-carousel__btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.services-carousel__indicators {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.services-carousel__indicator {
+    width: 12px;
+    height: 12px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.services-carousel__indicator.active {
+    background: white;
+    transform: scale(1.2);
+}
+
+.services-carousel__indicator:hover {
+    background: rgba(255, 255, 255, 0.7);
 }
 
 .service-card {
@@ -1067,7 +1159,6 @@ html {
     border: 1px solid rgba(255, 255, 255, 0.2);
     padding: var(--spacing-xl);
     border-radius: var(--border-radius-lg);
-    text-align: center;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -1094,26 +1185,61 @@ html {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
-.service-card__icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto var(--spacing-lg);
-    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light));
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-white);
-    font-size: 2rem;
-    box-shadow: 0 8px 25px rgba(220, 38, 38, 0.3);
-}
-
 .service-card__title {
     font-family: var(--font-family-secondary);
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-bold);
     color: var(--color-white);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.service-card__content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.service-card__text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.service-card__image {
+    flex: 0 0 150px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .service-card__content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .service-card__text {
+        text-align: center;
+    }
+    
+    .service-card__image {
+        flex: none;
+        width: 100%;
+        height: 200px;
+        order: -1;
+    }
 }
 
 .service-card__description {
@@ -1161,6 +1287,130 @@ html {
 .service-card__cta:hover {
     color: var(--color-white);
     transform: translateX(5px);
+}
+
+/* ===================================
+   REMODELACIONES CARD - BACKGROUND ANIMADO
+   =================================== */
+
+/* Selector específico para la tarjeta de remodelaciones */
+.service-card[data-index="2"] {
+    background-image: url('../img/galeria/remodelaciones-background.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Overlay para mejorar la legibilidad del texto */
+.service-card[data-index="2"]::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(30, 58, 138, 0.8) 0%,
+        rgba(59, 130, 246, 0.7) 50%,
+        rgba(30, 64, 175, 0.8) 100%
+    );
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+/* Asegurar que el contenido esté por encima del overlay */
+.service-card[data-index="2"] .service-card__title,
+.service-card[data-index="2"] .service-card__content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Animación de parallax en hover */
+.service-card[data-index="2"]:hover {
+    transform: translateY(-8px) scale(1.02);
+    background-position: center 10px;
+}
+
+/* Animación del overlay en hover */
+.service-card[data-index="2"]:hover::after {
+    background: linear-gradient(
+        135deg,
+        rgba(30, 58, 138, 0.6) 0%,
+        rgba(59, 130, 246, 0.5) 50%,
+        rgba(30, 64, 175, 0.6) 100%
+    );
+}
+
+/* Animación de brillo que se mueve */
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+}
+
+.service-card[data-index="2"]::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 70%
+    );
+    animation: shimmer 3s ease-in-out infinite;
+    z-index: 1;
+}
+
+/* Efecto de partículas flotantes */
+.service-card[data-index="2"] .service-card__content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 2px, transparent 2px),
+        radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+        radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.1) 1.5px, transparent 1.5px);
+    background-size: 50px 50px, 30px 30px, 40px 40px;
+    animation: float 6s ease-in-out infinite;
+    z-index: 1;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+}
+
+/* Mejoras en la tipografía para la tarjeta de remodelaciones */
+.service-card[data-index="2"] .service-card__title {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: var(--font-weight-extrabold);
+}
+
+.service-card[data-index="2"] .service-card__description {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.1);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    backdrop-filter: blur(5px);
 }
 
 /* ===================================
@@ -1941,12 +2191,12 @@ html {
         max-width: 400px;
     }
 }
-    
+
     .footer__social-link svg {
         width: 24px;
         height: 24px;
     }
-}
+
 
 /* ===================================
    BUSINESS AREAS SECTIONS - ÁREAS DE NEGOCIO
@@ -2182,14 +2432,14 @@ html {
 }
 
 /* Consultoría Agrícola: ajustar altura y centrado vertical */
-.business-area-section--agricola .business-area__body { min-height: 420px; }
-.business-area-section--agricola .business-area__image { min-height: 420px; }
-.business-area-section--agricola .business-area__image img { max-height: 420px; }
+.business-area-section--agricola .business-area__body { min-height: 480px; }
+.business-area-section--agricola .business-area__image { min-height: 480px; }
+.business-area-section--agricola .business-area__image img { max-height: 480px; }
 .business-area-section--agricola .business-area__description { display: flex; flex-direction: column; justify-content: center; }
 @media (max-width: 768px) {
   .business-area-section--agricola .business-area__body,
-  .business-area-section--agricola .business-area__image { min-height: 320px; }
-  .business-area-section--agricola .business-area__image img { max-height: 320px; }
+  .business-area-section--agricola .business-area__image { min-height: 360px; }
+  .business-area-section--agricola .business-area__image img { max-height: 360px; }
 }
 
 /* Descripción */

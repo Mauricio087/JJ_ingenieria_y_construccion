@@ -1,0 +1,118 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="wallGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5f5f5;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#e8e8e8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d0d0d0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cabinetGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#f8f8f8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e0e0e0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="counterGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B4513;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#A0522D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#654321;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#wallGradient)"/>
+  
+  <!-- Floor -->
+  <rect x="0" y="600" width="1200" height="200" fill="#8B7355"/>
+  
+  <!-- Window -->
+  <rect x="50" y="100" width="200" height="300" fill="#87CEEB" stroke="#666" stroke-width="3"/>
+  <rect x="50" y="100" width="200" height="300" fill="none" stroke="#666" stroke-width="2"/>
+  <line x1="150" y1="100" x2="150" y2="400" stroke="#666" stroke-width="2"/>
+  <line x1="50" y1="250" x2="250" y2="250" stroke="#666" stroke-width="2"/>
+  
+  <!-- Upper Cabinets -->
+  <rect x="300" y="150" width="600" height="200" fill="url(#cabinetGradient)" stroke="#ccc" stroke-width="2"/>
+  <rect x="320" y="170" width="80" height="160" fill="none" stroke="#ddd" stroke-width="1"/>
+  <rect x="420" y="170" width="80" height="160" fill="none" stroke="#ddd" stroke-width="1"/>
+  <rect x="520" y="170" width="80" height="160" fill="none" stroke="#ddd" stroke-width="1"/>
+  <rect x="620" y="170" width="80" height="160" fill="none" stroke="#ddd" stroke-width="1"/>
+  <rect x="720" y="170" width="80" height="160" fill="none" stroke="#ddd" stroke-width="1"/>
+  <rect x="820" y="170" width="60" height="160" fill="none" stroke="#ddd" stroke-width="1"/>
+  
+  <!-- Cabinet Handles -->
+  <circle cx="380" cy="250" r="3" fill="#888"/>
+  <circle cx="480" cy="250" r="3" fill="#888"/>
+  <circle cx="580" cy="250" r="3" fill="#888"/>
+  <circle cx="680" cy="250" r="3" fill="#888"/>
+  <circle cx="780" cy="250" r="3" fill="#888"/>
+  <circle cx="860" cy="250" r="3" fill="#888"/>
+  
+  <!-- Countertop -->
+  <rect x="300" y="400" width="600" height="40" fill="url(#counterGradient)"/>
+  
+  <!-- Lower Cabinets -->
+  <rect x="300" y="440" width="600" height="160" fill="url(#cabinetGradient)" stroke="#ccc" stroke-width="2"/>
+  <rect x="320" y="460" width="80" height="120" fill="none" stroke="#ddd" stroke-width="1"/>
+  <rect x="420" y="460" width="80" height="120" fill="none" stroke="#ddd" stroke-width="1"/>
+  <rect x="520" y="460" width="80" height="120" fill="none" stroke="#ddd" stroke-width="1"/>
+  <rect x="620" y="460" width="80" height="120" fill="none" stroke="#ddd" stroke-width="1"/>
+  <rect x="720" y="460" width="80" height="120" fill="none" stroke="#ddd" stroke-width="1"/>
+  <rect x="820" y="460" width="60" height="120" fill="none" stroke="#ddd" stroke-width="1"/>
+  
+  <!-- Lower Cabinet Handles -->
+  <circle cx="380" cy="520" r="3" fill="#888"/>
+  <circle cx="480" cy="520" r="3" fill="#888"/>
+  <circle cx="580" cy="520" r="3" fill="#888"/>
+  <circle cx="680" cy="520" r="3" fill="#888"/>
+  <circle cx="780" cy="520" r="3" fill="#888"/>
+  <circle cx="860" cy="520" r="3" fill="#888"/>
+  
+  <!-- People working -->
+  <!-- Person 1 - Woman with drill -->
+  <ellipse cx="450" cy="580" rx="15" ry="8" fill="#D2B48C"/>
+  <circle cx="450" cy="540" r="12" fill="#D2B48C"/>
+  <path d="M 430 545 Q 435 535 445 540 Q 455 535 460 545" fill="#8B4513"/>
+  <rect x="440" y="550" width="20" height="30" fill="#FFD700"/>
+  <rect x="435" y="555" width="8" height="20" fill="#D2B48C"/>
+  <rect x="457" y="555" width="8" height="20" fill="#D2B48C"/>
+  <rect x="445" y="580" width="6" height="15" fill="#4169E1"/>
+  <rect x="454" y="580" width="6" height="15" fill="#4169E1"/>
+  <rect x="425" y="560" width="15" height="4" fill="#FF6347"/>
+  
+  <!-- Person 2 - Man installing cabinet -->
+  <ellipse cx="650" cy="580" rx="15" ry="8" fill="#D2B48C"/>
+  <circle cx="650" cy="540" r="12" fill="#D2B48C"/>
+  <path d="M 635 545 Q 640 535 650 540 Q 660 535 665 545" fill="#654321"/>
+  <rect x="640" y="550" width="20" height="30" fill="#87CEEB"/>
+  <rect x="635" y="555" width="8" height="20" fill="#D2B48C"/>
+  <rect x="657" y="555" width="8" height="20" fill="#D2B48C"/>
+  <rect x="645" y="580" width="6" height="15" fill="#4169E1"/>
+  <rect x="654" y="580" width="6" height="15" fill="#4169E1"/>
+  
+  <!-- Person 3 - Person measuring -->
+  <ellipse cx="750" cy="580" rx="15" ry="8" fill="#D2B48C"/>
+  <circle cx="750" cy="540" r="12" fill="#D2B48C"/>
+  <path d="M 735 545 Q 740 535 750 540 Q 760 535 765 545" fill="#2F4F4F"/>
+  <rect x="740" y="550" width="20" height="30" fill="#98FB98"/>
+  <rect x="735" y="555" width="8" height="20" fill="#D2B48C"/>
+  <rect x="757" y="555" width="8" height="20" fill="#D2B48C"/>
+  <rect x="745" y="580" width="6" height="15" fill="#4169E1"/>
+  <rect x="754" y="580" width="6" height="15" fill="#4169E1"/>
+  <line x1="720" y1="565" x2="780" y2="565" stroke="#FFD700" stroke-width="2"/>
+  
+  <!-- Tools and materials -->
+  <rect x="950" y="550" width="40" height="20" fill="#8B4513"/>
+  <rect x="950" y="520" width="15" height="30" fill="#FF6347"/>
+  <rect x="970" y="520" width="15" height="30" fill="#32CD32"/>
+  <circle cx="1000" cy="560" r="8" fill="#C0C0C0"/>
+  
+  <!-- Tool belt -->
+  <rect x="440" y="570" width="20" height="5" fill="#8B4513"/>
+  <rect x="640" y="570" width="20" height="5" fill="#8B4513"/>
+  
+  <!-- Backsplash -->
+  <rect x="300" y="350" width="600" height="50" fill="#F0F8FF" stroke="#ddd" stroke-width="1"/>
+  <pattern id="tile" patternUnits="userSpaceOnUse" width="20" height="20">
+    <rect width="20" height="20" fill="#F0F8FF" stroke="#E6E6FA" stroke-width="0.5"/>
+  </pattern>
+  <rect x="300" y="350" width="600" height="50" fill="url(#tile)"/>
+</svg>
